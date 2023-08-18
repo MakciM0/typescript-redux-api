@@ -1,4 +1,4 @@
-import { TProducts } from './../containers/Shop/Shop';
+import { TProducts } from './../types/types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 

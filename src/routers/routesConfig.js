@@ -21,10 +21,10 @@ const routesConfig = [
       path: '/Shop/Item/:id/:name',
       element: <SingleItem></SingleItem>
     },
-    // {
-    //   path: '*',
-    //   element: <ErrorPage></ErrorPage>
-    // },
+    {
+      path: '*',
+      element: <Shop></Shop>
+    },
   ];
   
   export default routesConfig

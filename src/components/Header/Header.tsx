@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { useAppDispatch } from '../../store/appHooks';
+import { useAppDispatch, useAppSelector } from '../../store/appHooks';
 import { SetCurrentCategory } from '../../store/productsSlice';
 
 import styles from './Header.module.css'
@@ -14,6 +14,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = () => {
 
     const dispatch = useAppDispatch();
+    const cart = useAppSelector(state => state.products.Cart)
     
     return ( 
         <header>
@@ -22,14 +23,14 @@ const Header: FC<HeaderProps> = () => {
                     <h1>Logo</h1>
                 </div>
                 <div className={styles.links}>
-                    <NavLink to={'/Main'}>
+                    {/* <NavLink to={'/Main'}>
                         Main
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink to={'/Shop'} onClick={() => {dispatch(SetCurrentCategory(''))}}>
                         Shop
                     </NavLink>
                     <NavLink to={'/Cart'}>
-                        Cart
+                        Cart <span>{cart.length}</span>
                     </NavLink>
                 </div> 
             </div>

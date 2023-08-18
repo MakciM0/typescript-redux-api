@@ -1,5 +1,5 @@
 import React, {FC, useState} from "react";
-import { TProducts } from "../../containers/Shop/Shop";
+import { TProducts } from "../../types/types";
 import { SetCurrentCategory } from "../../store/productsSlice";
 import { useAppDispatch } from "../../store/appHooks";
 import styles from './SideMenu.module.css'

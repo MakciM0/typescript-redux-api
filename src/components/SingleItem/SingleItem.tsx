@@ -3,7 +3,8 @@ import { NavLink, useMatch } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../store/appHooks';
 import { AddInCart, SetCurrentCategory } from '../../store/productsSlice';
 import axios from 'axios';
-import { TProducts } from '../../containers/Shop/Shop';
+import { TProducts } from '../../types/types';
+import { base_URL } from '../../api/Url';
 
 import styles from './SingleItem.module.css'
 
@@ -18,7 +19,6 @@ interface SingleItemProps {
 
  
 const SingleItem: FC<SingleItemProps> = () => {
-    const base_URL = 'https://fakestoreapi.com/products';
     const match = useMatch('/Shop/Item/:id/:name');
     const idMatch = match?.params.id;
     // const products = useAppSelector(state=> state.products.AllProducts)

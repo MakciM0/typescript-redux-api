@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-import { TProducts } from "../../containers/Shop/Shop";
+import { TProducts } from "../../types/types";
 
 import { NavLink } from "react-router-dom";
 

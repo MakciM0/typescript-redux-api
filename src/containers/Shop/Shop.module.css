@@ -1,0 +1,18 @@
+.shop{
+    max-width: 1240px;
+    margin: 0 auto;
+
+    position: relative;
+}
+
+.shop h1{
+    font-size: 32px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

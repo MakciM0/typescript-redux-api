@@ -1,0 +1,30 @@
+header{
+    background-color: #fff;
+}
+
+.wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.logo h1{
+    font-size: 40px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+
+    font-size: 24px;
+}
+
+.links a{
+    text-decoration: none;
+
+    color: red;
+
+    padding: 10px 50px;
+}

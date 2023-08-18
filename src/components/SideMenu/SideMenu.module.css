@@ -1,0 +1,17 @@
+
+
+.side{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    
+    top: 30vh;
+    left: -15%;
+}
+
+.side button{
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+}

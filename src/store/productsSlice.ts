@@ -52,15 +52,11 @@ const productsSlice = createSlice({
             state.Cart.length = 0;
             localStorage.clear();
         },
-        //  -----------------------LocalStorage
-        SetItemInLocal:(state, action: PayloadAction<TProducts>) =>{
-            // useEffect(() =>{
-            //     localStorage.setItem(action.payload.title, JSON.stringify(action.payload))
-            // }, [action.payload])
-        },
+        
+        // Count
     
 }})
 
-export const { AddProducts, SetCurrentCategory, AddInCart, RemoveFromCart, ClearCart, SetItemInLocal} = productsSlice.actions;
+export const { AddProducts, SetCurrentCategory, AddInCart, RemoveFromCart, ClearCart} = productsSlice.actions;
 export const selectCount = (state: RootState) => state.products
 export default productsSlice.reducer;

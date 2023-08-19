@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from 'react'
 import { NavLink, useMatch } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../store/appHooks';
-import { AddInCart, SetCurrentCategory, SetItemInLocal } from '../../store/productsSlice';
+import { AddInCart, SetCurrentCategory } from '../../store/productsSlice';
 import axios from 'axios';
 import { TProducts } from '../../types/types';
 import { base_URL } from '../../api/Url';
@@ -41,10 +41,6 @@ const SingleItem: FC<SingleItemProps> = () => {
         
         
         
-    }
-
-    const OpenWithCategory = () =>{
-
     }
 
 

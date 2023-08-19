@@ -1,0 +1,33 @@
+.shop {
+  width: var(--size-mid-width);
+  margin: 0 auto;
+  position: relative;
+
+  h1 {
+    font-size: 32px;
+    text-align: center;
+    margin: var(--size-space-small) 0;
+  }
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .loading {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px dashed black;
+      margin: 0 auto;
+      margin-bottom: var(--size-space-big);
+
+      animation: vertical-move 3s forwards;
+      -webkit-animation: vertical-move 3s forwards;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+  }
+}
+

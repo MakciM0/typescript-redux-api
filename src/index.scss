@@ -1,0 +1,20 @@
+:root {
+  --color-red: red;
+  --color-bg: ;
+  --color-bg-app: ;
+
+  --size-font-small: 20px;
+
+  --size-space-small: 20px;
+  --size-space-medium: 25px;
+  --size-space-big: 50px;
+
+  --size-mid-width: 1240px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+
+  font-family: "Lato", sans-serif;
+}

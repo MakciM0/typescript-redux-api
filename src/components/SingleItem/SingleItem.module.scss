@@ -1,0 +1,106 @@
+.item_wrap {
+  .item {
+    width: var(--size-mid-width);
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 var(--size-space-big) var(--size-space-big) var(--size-space-big);
+
+    .title {
+      width: 100%;
+      text-align: center;
+      padding: 30px 0;
+      font-size: var(--size-font-small);
+    }
+    .img {
+      width: 50%;
+
+      img {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+      }
+    }
+    .info {
+      width: 50%;
+      padding-top: var(--size-space-big);
+      text-align: center;
+
+      .desc {
+        font-size: var(--size-font-small);
+      }
+      .price {
+        margin-bottom: var(--size-space-small);
+      }
+      p {
+        margin-top: var(--size-space-small);
+        font-size: var(--size-font-small);
+
+        span {
+          color: red;
+        }
+      }
+      button {
+        margin-top: var(--size-space-small);
+        font-size: var(--size-font-small);
+      }
+      a {
+        text-decoration: none;
+        font-size: var(--size-font-small);
+        transition: 0.3s;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        cursor: pointer;
+        user-select: none;
+        color: #010101;
+      }
+    }
+    .order {
+      margin: 0 auto;
+
+      button {
+        font-size: var(--size-font-small);
+        padding: 5px;
+        text-transform: uppercase;
+        margin-top: var(--size-space-big);
+      }
+    }
+  }
+}
+
+@keyframes vertical-move {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px dashed black;
+  text-align: center;
+  display: block;
+  margin: var(--size-space-big) auto;
+
+  animation: vertical-move 3s forwards;
+  -webkit-animation: vertical-move 3s forwards;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

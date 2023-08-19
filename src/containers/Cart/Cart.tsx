@@ -2,7 +2,8 @@ import React, {FC} from "react";
 
 import styles from './Cart.module.css'
 
-import { useAppSelector } from "../../store/appHooks";
+import { useAppSelector, useAppDispatch } from "../../store/appHooks";
+import { ClearCart } from "../../store/productsSlice";
 
 interface CartProps {
     
@@ -10,12 +11,7 @@ interface CartProps {
  
 const Cart: FC<CartProps> = () => {
 
-    const PlusItem = () =>{
-
-    }
-    const MinusItem = () =>{
-        
-    }
+    const dispatch = useAppDispatch();
 
     const cart = useAppSelector(state=> state.products.Cart)
     console.log(cart)
@@ -41,6 +37,7 @@ const Cart: FC<CartProps> = () => {
             </div>
             <div className={styles.order}>
                 <button>Order</button>
+                <button onClick={() => {dispatch(ClearCart)}}>Clear all Cart</button>
             </div>
         </div>
     );

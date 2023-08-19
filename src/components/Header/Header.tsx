@@ -20,7 +20,11 @@ const Header: FC<HeaderProps> = () => {
         <header>
             <div className={styles.wrap}>
                 <div className={styles.logo}>
-                    <h1>Logo</h1>
+                    <h1>
+                    <NavLink to={'/Shop'} onClick={() => {dispatch(SetCurrentCategory(''))}}>
+                        Logo
+                    </NavLink>
+                    </h1>
                 </div>
                 <div className={styles.links}>
                     {/* <NavLink to={'/Main'}>
@@ -30,7 +34,8 @@ const Header: FC<HeaderProps> = () => {
                         Shop
                     </NavLink>
                     <NavLink to={'/Cart'}>
-                        Cart <span>{cart.length}</span>
+                        Cart  
+                        <span>{cart.length > 0 ? cart.length : ' '}</span>
                     </NavLink>
                 </div> 
             </div>

@@ -46,11 +46,14 @@ const productsSlice = createSlice({
         RemoveFromCart:(state, action: PayloadAction<TProducts>) =>{
             state.Cart = state.Cart.filter(item => item.id !== action.payload.id);
         },
+        ClearCart: (state) =>{
+            state.Cart.length = 0;
+        }
 
         //  -----------------------LocalStorage
     
 }})
 
-export const { AddProducts, SetCurrentCategory, AddInCart, RemoveFromCart} = productsSlice.actions;
+export const { AddProducts, SetCurrentCategory, AddInCart, RemoveFromCart, ClearCart} = productsSlice.actions;
 export const selectCount = (state: RootState) => state.products
 export default productsSlice.reducer;

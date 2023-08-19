@@ -2,7 +2,6 @@ import { TProducts } from './../types/types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-
 const productsSlice = createSlice({
     name: 'products',
     initialState:{
@@ -14,6 +13,8 @@ const productsSlice = createSlice({
     reducers: {
         AddProducts:(state, action: PayloadAction<TProducts[]>) =>{
              state.AllProducts = action.payload
+
+            //  state.Cart.push(JSON.parse(localStorage.getItem(''))) error types
         },
 
         // CATEGORY
@@ -28,7 +29,7 @@ const productsSlice = createSlice({
         // CART
         AddInCart:(state, action: PayloadAction<TProducts>) =>{
             if(state.Cart.find((el) => el.id === action.payload.id)) {
-                console.log('incr')
+                localStorage.removeItem(action.payload.title)
 
                 productsSlice.caseReducers.RemoveFromCart(state, action)
             } else{
@@ -41,6 +42,7 @@ const productsSlice = createSlice({
                     image : action.payload.image,
                     rating : action.payload.rating,
                 })
+                localStorage.setItem(action.payload.title, JSON.stringify(action.payload))
             } 
         },
         RemoveFromCart:(state, action: PayloadAction<TProducts>) =>{
@@ -48,12 +50,17 @@ const productsSlice = createSlice({
         },
         ClearCart: (state) =>{
             state.Cart.length = 0;
-        }
-
+            localStorage.clear();
+        },
         //  -----------------------LocalStorage
+        SetItemInLocal:(state, action: PayloadAction<TProducts>) =>{
+            // useEffect(() =>{
+            //     localStorage.setItem(action.payload.title, JSON.stringify(action.payload))
+            // }, [action.payload])
+        },
     
 }})
 
-export const { AddProducts, SetCurrentCategory, AddInCart, RemoveFromCart, ClearCart} = productsSlice.actions;
+export const { AddProducts, SetCurrentCategory, AddInCart, RemoveFromCart, ClearCart, SetItemInLocal} = productsSlice.actions;
 export const selectCount = (state: RootState) => state.products
 export default productsSlice.reducer;

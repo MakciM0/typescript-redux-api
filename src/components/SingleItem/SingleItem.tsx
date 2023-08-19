@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from 'react'
 import { NavLink, useMatch } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../store/appHooks';
-import { AddInCart, SetCurrentCategory } from '../../store/productsSlice';
+import { AddInCart, SetCurrentCategory, SetItemInLocal } from '../../store/productsSlice';
 import axios from 'axios';
 import { TProducts } from '../../types/types';
 import { base_URL } from '../../api/Url';
@@ -11,11 +11,6 @@ import styles from './SingleItem.module.css'
 interface SingleItemProps {
     
 }
-
-
-//Запрос https://fakestoreapi.com/products/1 
-
-// https://fakestoreapi.com/products/category/men's%20clothing  Категория
 
  
 const SingleItem: FC<SingleItemProps> = () => {
@@ -41,8 +36,11 @@ const SingleItem: FC<SingleItemProps> = () => {
 
     const dispatch = useAppDispatch();
 
-    const handleCart = (item : TProducts) =>{
-        dispatch(AddInCart(item))
+    const HandleCart = (item : TProducts) =>{
+        dispatch(AddInCart(item));
+        
+        
+        
     }
 
     const OpenWithCategory = () =>{
@@ -51,7 +49,6 @@ const SingleItem: FC<SingleItemProps> = () => {
 
 
   useEffect(() => {
-
     const fetchData = async () =>{
         try{
              await axios.get( `${base_URL}/${idMatch}` ).then((response) => {
@@ -87,7 +84,7 @@ const SingleItem: FC<SingleItemProps> = () => {
                 <p>Raiting: <span>{product.rating.rate}</span></p>
             </div>
             <div className={styles.order}>
-                <button onClick={() => {handleCart(product)}}>
+                <button onClick={() => {HandleCart(product)}}>
                 {cart.some((item) => item.id === product.id)  ? "Remove From Cart" : "Add in Cart"}
                     </button>
             </div>

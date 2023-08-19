@@ -3,6 +3,16 @@
     margin: 0 auto;
 }
 
+.cart_empty p{
+    text-align: center;
+    font-size: 22px;
+    padding: 50px;
+}
+
+.cart_filled{
+
+}
+
 .items{
     padding-bottom: 20px;
 }

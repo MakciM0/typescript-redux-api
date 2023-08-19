@@ -20,9 +20,8 @@ const ItemShop: FC<ItemShopProps> = (products: ItemShopProps) => {
 
     const handleClick= () => {
         // dispatch(increment())
-    } 
-
-    // console.log(products)
+    }
+    
     return ( 
     <>
         {products.products.map((item) =>(

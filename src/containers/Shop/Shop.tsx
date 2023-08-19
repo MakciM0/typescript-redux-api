@@ -18,15 +18,15 @@ const Shop: FC<ShopProps> = () => {
     const dispatch = useAppDispatch();
     const currentCategory = useAppSelector(state=> state.products.CurrentCategory)
 
-    const [products, setProducts] = useState<TProducts[]>([]);
+    const [products, setProducts] = useState<TProducts[]>([]); // axios.get
 
-    const category_URL = `/category/${currentCategory}`
+    const category_URL = `/category/${currentCategory}` // for useEffect axios else 
 
     useEffect(() => {
         const fetchData = async () =>{
             try{
                 if(!currentCategory){
-                   await axios.get(base_URL).then((response) => {
+                    await axios.get(base_URL).then((response) => {
                         setProducts(response.data);
                         //Dispatch
                         dispatch((AddProducts(response.data))) //SingleItem > AddCart
@@ -42,7 +42,7 @@ const Shop: FC<ShopProps> = () => {
             } 
         };
         fetchData();
-      },[category_URL]);
+    },[category_URL]);
 
 
     //   Пагинация
@@ -53,8 +53,6 @@ const Shop: FC<ShopProps> = () => {
                 <ItemShop products={products}></ItemShop>
             </div>
             <SideMenu products={products}></SideMenu>
-            
-            
         </div>
         
     );

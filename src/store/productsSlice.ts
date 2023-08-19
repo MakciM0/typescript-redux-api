@@ -12,7 +12,7 @@ const productsSlice = createSlice({
 
     reducers: {
         AddProducts:(state, action: PayloadAction<TProducts[]>) =>{
-             state.AllProducts = action.payload
+            state.AllProducts = action.payload
 
             //  state.Cart.push(JSON.parse(localStorage.getItem(''))) error types
         },

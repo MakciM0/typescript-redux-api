@@ -15,8 +15,6 @@ const Cart: FC<CartProps> = () => {
 
     const cart = useAppSelector(state=> state.products.Cart)
 
-  
-
     return ( 
 
         <div className={styles.cart}>
@@ -45,7 +43,7 @@ const Cart: FC<CartProps> = () => {
                     <button onClick={() => {dispatch(ClearCart())}}>Clear all Cart</button>
                 </div>
             </div> 
-            
+            // Если пустая корзина
             :  <div className={styles.cart_empty}>
                 <p>Cart is Empty</p>
                 </div>}

@@ -11,8 +11,8 @@ interface SideMenuProps {
 const SideMenu: FC<SideMenuProps> = (products : SideMenuProps) => {
 
     const [category, setCategory] = useState<string[]>(["men's clothing" , "jewelery" , "electronics" , "women's clothing"]);
+    // setCategory
 
-    // console.log(category)
     const dispatch = useAppDispatch();
 
     const handleCategory = (cat:string) =>{

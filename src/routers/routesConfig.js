@@ -25,6 +25,7 @@ const routesConfig = [
       path: '*',
       element: <Shop></Shop>
     },
+    // Error
   ];
   
   export default routesConfig

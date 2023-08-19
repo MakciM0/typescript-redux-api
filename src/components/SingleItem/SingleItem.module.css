@@ -25,9 +25,7 @@
 .img img{
     width: 400px;
     height: 400px;
-
     margin: 0 auto;
-    /* align-items: center; */
 }
 
 .info{
@@ -65,7 +63,6 @@
 
 .desc{
     font-size: 20px;
-    /* word-wrap: break-word; */
 }
 
 .order{

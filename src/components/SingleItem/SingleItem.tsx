@@ -16,10 +16,9 @@ interface SingleItemProps {
 const SingleItem: FC<SingleItemProps> = () => {
     const match = useMatch('/Shop/Item/:id/:name');
     const idMatch = match?.params.id;
-    // const products = useAppSelector(state=> state.products.AllProducts)
     const cart = useAppSelector(state => state.products.Cart)
 
-    const ErrorItem: TProducts = { //TProduct | undefind
+    const ErrorItem: TProducts = { // ERROR TProduct | undefind
                 title : 'error',
                 id : -1,
                 price : 12,
@@ -38,9 +37,6 @@ const SingleItem: FC<SingleItemProps> = () => {
 
     const HandleCart = (item : TProducts) =>{
         dispatch(AddInCart(item));
-        
-        
-        
     }
 
 

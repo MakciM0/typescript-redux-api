@@ -1,4 +1,4 @@
-import { TProducts } from "./../types/types";
+import { TProducts, TProductsCount } from "./../types/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
@@ -7,7 +7,8 @@ const productsSlice = createSlice({
   initialState: {
     AllProducts: [] as TProducts[],
     CurrentCategory: null as string | null,
-    Cart: [] as TProducts[],
+    Cart: [] as TProductsCount[],
+    TotalPrice: 0 as number,
   },
 
   reducers: {
@@ -30,8 +31,9 @@ const productsSlice = createSlice({
     AddInCart: (state, action: PayloadAction<TProducts>) => {
       if (state.Cart.find((el) => el.id === action.payload.id)) {
         localStorage.removeItem(action.payload.title);
-
-        productsSlice.caseReducers.RemoveFromCart(state, action);
+        // productsSlice.caseReducers.RemoveFromCart(state, action);
+        state.Cart = state.Cart.filter((item) => item.id !== action.payload.id);
+        state.TotalPrice -= action.payload.price;
       } else {
         state.Cart.push({
           title: action.payload.title,
@@ -41,22 +43,36 @@ const productsSlice = createSlice({
           description: action.payload.description,
           image: action.payload.image,
           rating: action.payload.rating,
+          count: 1,
         });
+        state.TotalPrice += action.payload.price;
         localStorage.setItem(
           action.payload.title,
           JSON.stringify(action.payload)
         );
       }
     },
-    RemoveFromCart: (state, action: PayloadAction<TProducts>) => {
-      state.Cart = state.Cart.filter((item) => item.id !== action.payload.id);
-    },
     ClearCart: (state) => {
       state.Cart.length = 0;
+      state.TotalPrice = 0;
       localStorage.clear();
     },
 
     // Count
+    PlusCount: (state, action: PayloadAction<TProductsCount>) => {
+      const isFind = state.Cart.find((el) => el.id === action.payload.id);
+      if (isFind) {
+        isFind.count += 1;
+        state.TotalPrice += action.payload.price;
+      }
+    },
+    MinusCount: (state, action: PayloadAction<TProductsCount>) => {
+      const isFind = state.Cart.find((el) => el.id === action.payload.id);
+      if (isFind && isFind.count > 1) {
+        isFind.count -= 1;
+        state.TotalPrice -= action.payload.price;
+      }
+    },
   },
 });
 
@@ -64,8 +80,9 @@ export const {
   AddProducts,
   SetCurrentCategory,
   AddInCart,
-  RemoveFromCart,
   ClearCart,
+  PlusCount,
+  MinusCount,
 } = productsSlice.actions;
 export const selectCount = (state: RootState) => state.products;
 export default productsSlice.reducer;

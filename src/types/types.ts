@@ -10,3 +10,5 @@ export type TProducts = {
     count: number;
   };
 };
+
+export type TProductsCount = TProducts & { count: number };

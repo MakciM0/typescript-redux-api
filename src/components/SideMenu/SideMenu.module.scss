@@ -11,4 +11,32 @@
     font-size: 18px;
     text-transform: uppercase;
   }
+  .current_category{
+    color: red;
+  }
+}
+
+// @MEDIA
+
+@media (max-width: 1630px) {
+  .side{
+    position: static;
+
+    button{
+      width: 30%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .side{
+    
+
+    button{
+      width: 50%;
+      margin: 5px auto;
+      font-size: 16px;
+    }
+  }
 }

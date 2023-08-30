@@ -7,7 +7,7 @@ import { BrowserRouter, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-import styles from "./App.module.css";
+import styles from "./App.module.scss";
 
 function App() {
   return (

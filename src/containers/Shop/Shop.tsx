@@ -55,6 +55,7 @@ const Shop: FC<ShopProps> = () => {
       >
         Shop
       </h1>
+      <SideMenu products={products}></SideMenu>
       <div className={styles.items}>
         {isLoading ? (
           <ItemShop products={products}></ItemShop>
@@ -62,7 +63,6 @@ const Shop: FC<ShopProps> = () => {
           <span className={styles.loading}></span>
         )}
       </div>
-      <SideMenu products={products}></SideMenu>
     </div>
   );
 };

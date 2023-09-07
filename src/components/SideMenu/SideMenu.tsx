@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { TProducts } from "../../types/types";
 import { SetCurrentCategory } from "../../store/productsSlice";
-import { useAppDispatch } from "../../store/appHooks";
+import { useAppDispatch, useAppSelector } from "../../store/appHooks";
 import styles from "./SideMenu.module.scss";
 
 interface SideMenuProps {
@@ -18,6 +18,9 @@ const SideMenu: FC<SideMenuProps> = (products: SideMenuProps) => {
   // setCategory
 
   const dispatch = useAppDispatch();
+  const currentCategory = useAppSelector(
+    (state) => state.products.CurrentCategory
+  );
 
   const handleCategory = (cat: string) => {
     dispatch(SetCurrentCategory(cat));
@@ -27,7 +30,7 @@ const SideMenu: FC<SideMenuProps> = (products: SideMenuProps) => {
   return (
     <div className={styles.side}>
       {category.map((cat) => (
-        <button key={cat} onClick={() => handleCategory(cat)}>
+        <button className={`${currentCategory === cat ? 'category_active' : ''}`} key={cat} onClick={() => handleCategory(cat)}>
           {cat}
         </button>
       ))}

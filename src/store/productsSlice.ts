@@ -1,6 +1,6 @@
 import { TProducts, TProductsCount } from "./../types/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "./store";
+import store, { RootState } from "./store";
 
 const productsSlice = createSlice({
   name: "products",
@@ -9,6 +9,7 @@ const productsSlice = createSlice({
     CurrentCategory: null as string | null,
     Cart: [] as TProductsCount[],
     TotalPrice: 0 as number,
+    CurrentPage: 1 as number,
   },
 
   reducers: {
@@ -25,6 +26,7 @@ const productsSlice = createSlice({
       } else {
         state.CurrentCategory = action.payload;
       }
+      state.CurrentPage = 1;
     },
 
     // CART
@@ -73,6 +75,16 @@ const productsSlice = createSlice({
         state.TotalPrice -= action.payload.price;
       }
     },
+    // Pagination
+    ChangeCurrentPage: (state, action: PayloadAction<number>) => {
+      state.CurrentPage = action.payload;
+    },
+    PrevPage: (state) => {
+      state.CurrentPage -= 1;
+    },
+    NextPage: (state) => {
+      state.CurrentPage += 1;
+    },
   },
 });
 
@@ -83,6 +95,9 @@ export const {
   ClearCart,
   PlusCount,
   MinusCount,
+  ChangeCurrentPage,
+  PrevPage,
+  NextPage,
 } = productsSlice.actions;
 export const selectCount = (state: RootState) => state.products;
 export default productsSlice.reducer;

@@ -1,0 +1,27 @@
+.pagination_items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.pagination_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: var(--size-space-big);
+  font-size: var(--size-font-small);
+
+  button {
+    font-size: var(--size-font-small);
+    padding: 5px 10px;
+    margin: 0 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  p {
+    padding: 5px;
+  }
+}

@@ -12,6 +12,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    flex-direction: column;
 
     .loading {
       width: 100px;
@@ -51,23 +52,19 @@
 // @MEDIA
 
 @media (max-width: 1630px) {
-  .shop{
+  .shop {
     display: flex;
     flex-direction: column;
   }
 }
 
 @media (max-width: 1270px) {
-  .shop{
+  .shop {
     display: flex;
     flex-direction: column;
 
-    .items{
+    .items {
       justify-content: center;
-      
     }
   }
 }
-
-
-

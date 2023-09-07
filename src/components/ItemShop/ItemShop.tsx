@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { TProducts } from "../../types/types";
 import { NavLink } from "react-router-dom";
 
+// import Pagination from "../Pagination/Pagination";
+
 import { SetCurrentCategory } from "../../store/productsSlice";
 import { useAppDispatch } from "../../store/appHooks";
 

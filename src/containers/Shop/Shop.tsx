@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import axios from "axios";
-import ItemShop from "../../components/ItemShop/ItemShop";
+import Pagination from "../../components/Pagination/Pagination";
 import { useAppDispatch } from "../../store/appHooks";
 import { useAppSelector } from "../../store/appHooks";
 import { AddProducts, SetCurrentCategory } from "../../store/productsSlice";
@@ -29,7 +29,6 @@ const Shop: FC<ShopProps> = () => {
           await axios.get(base_URL).then((response) => {
             setProducts(response.data);
             setIsLoading(true);
-            //Dispatch
             dispatch(AddProducts(response.data)); //SingleItem > AddCart
           });
         } else {
@@ -41,7 +40,6 @@ const Shop: FC<ShopProps> = () => {
         // ERROR
       }
     };
-    // setIsLoading(false);
     fetchData();
   }, [category_URL]);
 
@@ -58,7 +56,7 @@ const Shop: FC<ShopProps> = () => {
       <SideMenu products={products}></SideMenu>
       <div className={styles.items}>
         {isLoading ? (
-          <ItemShop products={products}></ItemShop>
+          <Pagination products={products}></Pagination>
         ) : (
           <span className={styles.loading}></span>
         )}

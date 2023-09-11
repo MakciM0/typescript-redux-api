@@ -1,16 +1,12 @@
 import Cart from "../containers/Cart/Cart";
 import Shop from "../containers/Shop/Shop";
-import Main from "../containers/Main/Main";
+import ErrorPage from "../containers/Error/ErrorPage";
 import SingleItem from "../components/SingleItem/SingleItem";
 
 const routesConfig = [
   {
     path: "/Shop",
     element: <Shop></Shop>,
-  },
-  {
-    path: "/Main",
-    element: <Main></Main>,
   },
   {
     path: "/Cart",
@@ -21,10 +17,13 @@ const routesConfig = [
     element: <SingleItem></SingleItem>,
   },
   {
-    path: "*",
+    path: "*", //
     element: <Shop></Shop>,
   },
-  // Error
+  {
+    path: "/ErrorPage",
+    element: <ErrorPage></ErrorPage>,
+  },
 ];
 
 export default routesConfig;

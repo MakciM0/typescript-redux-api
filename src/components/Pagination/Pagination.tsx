@@ -55,7 +55,7 @@ const Pagination: FC<PaginationProps> = (products: PaginationProps) => {
           Prev
         </button>
         {numbers.map((n) => (
-          <p
+          <p key={n}
             className={`number ${currentPage === n ? "nav_active" : ""}`}
             onClick={() => {
               handleChangeCurrentPage(n);

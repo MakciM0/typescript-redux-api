@@ -19,6 +19,8 @@ const Shop: FC<ShopProps> = () => {
 
   const [products, setProducts] = useState<TProducts[]>([]); // axios.get
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  // const [errorText, setErrorText] = useState<string | unknown>('');
 
   const category_URL = `/category/${currentCategory}`; // for useEffect axios else
 
@@ -29,6 +31,7 @@ const Shop: FC<ShopProps> = () => {
           await axios.get(base_URL).then((response) => {
             setProducts(response.data);
             setIsLoading(true);
+            // setIsError(false);
             dispatch(AddProducts(response.data)); //SingleItem > AddCart
           });
         } else {
@@ -36,15 +39,22 @@ const Shop: FC<ShopProps> = () => {
             setProducts(response.data);
           });
         }
-      } catch (err) {
-        // ERROR
+      } catch (error) {
+        console.log(error);
+        setIsError(true);
+        
       }
     };
     fetchData();
   }, [category_URL]);
 
-  //   Пагинация
+  const handleErrorPage = () =>{
+    window.location.assign('http://localhost:3000/ErrorPage')
+  }
+
   return (
+    <>
+     {!isError ?(
     <div className={styles.shop}>
       <h1
         onClick={() => {
@@ -62,6 +72,8 @@ const Shop: FC<ShopProps> = () => {
         )}
       </div>
     </div>
+    ) : handleErrorPage()}
+    </>
   );
 };
 

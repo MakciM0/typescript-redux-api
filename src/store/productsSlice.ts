@@ -10,6 +10,7 @@ const productsSlice = createSlice({
     Cart: [] as TProductsCount[],
     TotalPrice: 0 as number,
     CurrentPage: 1 as number,
+    ErrorText: "" as string | unknown,
   },
 
   reducers: {

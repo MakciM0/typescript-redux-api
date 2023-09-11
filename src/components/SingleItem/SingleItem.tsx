@@ -27,7 +27,7 @@ const SingleItem: FC<SingleItemProps> = () => {
     rating: { rate: 0, count: 0 },
   };
 
-  const [product, setProduct] = useState<TProducts>(ErrorItem); // TProduct | undefind
+  const [product, setProduct] = useState<TProducts>(ErrorItem); // Error => TProduct | undefind
 
   const dispatch = useAppDispatch();
 
@@ -47,7 +47,6 @@ const SingleItem: FC<SingleItemProps> = () => {
       }
     };
     fetchData();
-    //  setIsLoading(false);
   }, []);
 
   return (
